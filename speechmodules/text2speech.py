@@ -100,7 +100,7 @@ class EdgeTTS:
         pygame.mixer.music.load(audio_file_path)
         pygame.mixer.music.play()
         while pygame.mixer.music.get_busy():
-            pygame.time.Clock().tick(10)
+            pygame.time.Clock().tick(5)
         pygame.mixer.quit()
 
 if __name__ == '__main__':
@@ -109,14 +109,15 @@ if __name__ == '__main__':
     # SECRET_KEY = ''
     # baidutts = BaiduTTS(APP_ID, API_KEY, SECRET_KEY)
     # baidutts.text_to_speech_and_play('春天来了，每天的天气都很好！')
-    #
+    
     # pyttsx3tts = Pyttsx3TTS()
     # pyttsx3tts.text_to_speech_and_play('春天来了，每天的天气都很好！')
-    #
+    
     # AZURE_API_KEY = ""
     # AZURE_REGION = ""
     # azuretts = AzureTTS(AZURE_API_KEY, AZURE_REGION)
     # azuretts.text_to_speech_and_play("嗯，你好，我是你的智能小伙伴，我的名字叫Murphy，你可以和我畅所欲言，我是很会聊天的哦！")
+    
     edgetts = EdgeTTS()
     asyncio.run(edgetts.text_to_speech_and_play(
         "嗯，你好，我是你的智能小伙伴，我的名字叫Murphy，你可以和我畅所欲言，我是很会聊天的哦！"))

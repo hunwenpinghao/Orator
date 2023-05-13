@@ -22,7 +22,7 @@ class BaiduASR:
             print('您可以开始说话了')
             # timeout 用于指定等待语音输入的最长时间（秒），如果没有检测到语音输入，则函数将返回None。默认值为 None，表示等待无限长的时间。如果指定了超时时间，则函数将在等待指定时间后自动返回。
             # phrase_time_limit：用于指定允许单次语音输入的最长时间（秒），如果超过这个时间，函数将自动停止录制，并返回None.默认值为 None，表示允许单次语音输入的时间没有限制。
-            audio = self.r.listen(source, timeout=20, phrase_time_limit=4)
+            audio = self.r.listen(source, timeout=8, phrase_time_limit=4)
 
         file_name = "./speech.wav"
         with open(file_name, "wb") as f:
@@ -135,16 +135,23 @@ class AzureASR:
 
 
 if __name__ == '__main__':
-    # APP_ID = ''
-    # API_KEY = ''
-    # SECRET_KEY = ''
-    # baiduasr = BaiduASR(APP_ID, API_KEY, SECRET_KEY)
-    # result = baiduasr.speech_to_text()
-    # print(result)
+    APP_ID = '33516534'
+    API_KEY = 'GdyiZqaGmwb5XiCGq0w01yAX'
+    SECRET_KEY = 'LG64E04zAb2idxQPFfWW1F9gdDTrPfWK'
+    baiduasr = BaiduASR(APP_ID, API_KEY, SECRET_KEY)
+    result = baiduasr.speech_to_text()
+    print(result)
+
+
     # AZURE_API_KEY = ""
     # AZURE_REGION = ""
     # azureasr = AzureASR(AZURE_API_KEY, AZURE_REGION)
     # azureasr.speech_to_text()
-    openai_api_key = ""
-    openaiasr = OpenaiASR(openai_api_key)
-    print(openaiasr.speech_to_text())
+
+
+    # openai_api_key = "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"
+    # openaiasr = OpenaiASR(openai_api_key)
+    # while True:
+    #     openaiasr = OpenaiASR(openai_api_key)
+    #     if openaiasr:
+    #         print(openaiasr.speech_to_text())

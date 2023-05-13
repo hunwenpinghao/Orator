@@ -2,9 +2,9 @@ import struct
 import pvporcupine
 import pyaudio
 
-PICOVOICE_API_KEY = ""  # 你的picovoice key
-keyword_path = './Hey-Murphy_en_mac_v2_1_0.ppn'  # 你的唤醒词检测离线文件地址
-
+PICOVOICE_API_KEY = "K2z8G0mfGkuRENiRGDejwJF2zHvi1OlcH+alHuNXAGrAIx8aSHyWKA=="  # 你的picovoice key
+keyword_path = ['weight\hi-murphy_en_windows_v2_2_0.ppn', 'weight\hi-yaya_en_windows_v2_2_0.ppn']  # 你的唤醒词检测离线文件地址
+keywords = ['hi, 我是 murphy', 'hi, 我是 yaya']
 
 class PicoWakeWord:
     def __init__(self, PICOVOICE_API_KEY, keyword_path, model_path=None):
@@ -13,7 +13,7 @@ class PicoWakeWord:
         self.model_path = model_path
         self.porcupine = pvporcupine.create(
             access_key=self.PICOVOICE_API_KEY,
-            keyword_paths=[self.keyword_path],
+            keyword_paths=self.keyword_path,
             model_path=self.model_path
         )
         self.myaudio = pyaudio.PyAudio()
@@ -41,4 +41,4 @@ if __name__ == '__main__':
 
         keyword_idx = picowakeword.porcupine.process(audio_obj_unpacked)
         if keyword_idx >= 0:
-            print("我听到了！")
+            print(f"我听到了！{keywords[keyword_idx]}")

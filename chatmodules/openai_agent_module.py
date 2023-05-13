@@ -15,8 +15,8 @@ import json
 import openai
 import os
 os.environ["WOLFRAM_ALPHA_APPID"] = ""
-os.environ["SERPER_API_KEY"] = ""
-openai_api_key = ''
+os.environ["SERPER_API_KEY"] = "e10ace5f5fa205d1e7568acf9f3a7fbb726e15e1"
+openai_api_key = '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'
 
 FORMAT_INSTRUCTIONS_CHINESE = """RESPONSE FORMAT INSTRUCTIONS
 ----------------------------
